@@ -94,9 +94,10 @@ public class AccountController {
 			model.addAttribute("message", "Tài khoản hoặc mật khẩu không chính xác. Vui lòng nhập lại hoặc đăng ký.");
 			return "home/dangnhap";
 
-		} else if (!khachHang.isChungThuc()) {
-			model.addAttribute("message", "Tài khoản cần được xác thực. Vui lòng xác thực tài khoản.");
-			return "home/dangnhap";
+			// } else if (!khachHang.isChungThuc()) {
+			// model.addAttribute("message", "Tài khoản cần được xác thực. Vui lòng xác thực
+			// tài khoản.");
+			// return "home/dangnhap";
 		} else {
 			// model.addAttribute("message", "Đăng nhập thành công :)");
 			session.setAttribute("khachHang", khachHang);
@@ -198,14 +199,15 @@ public class AccountController {
 		dao.create(khachHang);
 		model.addAttribute("message", "Ok");
 
-		String from = "chuongbui1309@gmail.com";
-		String to = khachHang.getEmail();
-		String subject = "Xin chào";
-		String url = request.getRequestURL().toString().replace("dangky", "chungthuc/" + khachHang.getMaKhachHang());
-		String body = "Nhấn vào đây  <a href='" + url + "'>Chứng thực tài khoản</a>";
+		// String from = "chuongbui1309@gmail.com";
+		// String to = khachHang.getEmail();
+		// String subject = "Xin chào";
+		// String url = request.getRequestURL().toString().replace("dangky",
+		// "chungthuc/" + khachHang.getMaKhachHang());
+		// String body = "Nhấn vào đây <a href='" + url + "'>Chứng thực tài khoản</a>";
 
-		MailInfo mail = new MailInfo(from, to, subject, body);
-		mailer.send(mail);
+		// MailInfo mail = new MailInfo(from, to, subject, body);
+		// mailer.send(mail);
 		return "home/dangky";
 	}
 
